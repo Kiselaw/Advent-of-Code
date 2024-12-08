@@ -32,7 +32,7 @@ def solution(matrix: list[str]) -> int:
             j += 1
     # get backwards diagonals
     for d in range(max_col_len + max_row_len - 2, -1, -1):
-        diagonal: list[str] = []
+        diagonal = []
         i = max(0, d - max_col_len + 1)
         j = min(d, max_col_len - 1)
         while True:
