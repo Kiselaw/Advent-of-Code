@@ -76,5 +76,5 @@ def print_diagonals(matrix):
 if __name__ == "__main__":
     matrix: list[str] = []
     with open("puzzle.txt", "r") as file:
-        matrix.extend(line.replace("\n", "") for line in file)
+        matrix.extend(line.strip() for line in file)
     print(solution(matrix))
