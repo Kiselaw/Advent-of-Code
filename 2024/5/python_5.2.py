@@ -1,8 +1,5 @@
-from typing import Set, Tuple
-
-
-def sort_rules(rules: list[Tuple]) -> dict[str, Set]:
-    sorted_rules: dict[str, Set] = {num: set() for num, rule in rules}
+def sort_rules(rules: list[tuple]) -> dict[str, set]:
+    sorted_rules: dict[str, set] = {num: set() for num, _ in rules}
     for _, rule in rules:
         if rule not in sorted_rules:
             sorted_rules[rule] = set()
@@ -12,7 +9,7 @@ def sort_rules(rules: list[Tuple]) -> dict[str, Set]:
 
 
 def get_invalid_updates(
-    sorted_rules: dict[str, Set], updates: list[list[str]]
+    sorted_rules: dict[str, set], updates: list[list[str]]
 ) -> list[list[str]]:
     invalid_updates = []
     for update in updates:
@@ -24,7 +21,7 @@ def get_invalid_updates(
 
 
 def correct_invalid_updates(
-    sorted_rules: dict[str, Set], invalid_updates: list[list[str]]
+    sorted_rules: dict[str, set], invalid_updates: list[list[str]]
 ) -> list[list[str]]:
     for update in invalid_updates:
         for i in range(len(update)):
@@ -34,7 +31,7 @@ def correct_invalid_updates(
     return invalid_updates
 
 
-def solution(rules: list[Tuple], updates: list[list[str]]) -> int:
+def solution(rules: list[tuple], updates: list[list[str]]) -> int:
     sorted_rules = sort_rules(rules)
     invalid_updates = get_invalid_updates(sorted_rules, updates)
     corrected_updates = correct_invalid_updates(sorted_rules, invalid_updates)

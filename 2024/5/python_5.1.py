@@ -1,14 +1,11 @@
-from typing import Set, Tuple
-
-
-def sort_rules(rules: list[Tuple]) -> dict[str, Set]:
-    sorted_rules: dict[str, Set] = {num: set() for num, rule in rules}
+def sort_rules(rules: list[tuple[str, str]]) -> dict[str, set]:
+    sorted_rules: dict[str, set] = {num: set() for num, rule in rules}
     for rule in rules:
         sorted_rules[rule[0]].add(rule[1])
     return sorted_rules
 
 
-def solution(rules: list[Tuple], updates: list[list[str]]) -> int:
+def solution(rules: list[tuple], updates: list[list[str]]) -> int:
     sorted_rules = sort_rules(rules)
     valid = True
     counter = 0
